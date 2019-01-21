@@ -8,3 +8,8 @@
 python graphics/gradient.py
 ```
 ![Generated Gradient](https://github.com/shavit/redesigned-waffle/raw/master/doc/example.png "Gradient")
+
+```
+python graphics/ray.py
+```
+![Generated Gradient](https://github.com/shavit/redesigned-waffle/raw/master/doc/example2.png "Environment")

@@ -1,4 +1,7 @@
 build
 env
+.DS_Store
 *.pyc
 out/*
+__pycache__
+
