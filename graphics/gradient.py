@@ -26,4 +26,4 @@ class Gradient(object):
 if __name__ == '__main__':
     g = Gradient()
     data = g.draw()
-    g.write('gradient.pmm', data)
+    g.write('gradient.ppm', data)
