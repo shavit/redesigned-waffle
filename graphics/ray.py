@@ -15,7 +15,7 @@ class Ray(object):
     def point_at_parameter(self, t):
         return self.__a.plus(self.__b.multif(t))
 
-    def color(self):
+    def color_environment(self):
         unitDirection = self.direction().unitVector()
         t = 0.5 * (unitDirection.y() + 1.0)
         vec1 = Vector(1, 1, 1).multif(1-t)
@@ -44,7 +44,7 @@ class Ray(object):
                 vecDest = vecDest.plus(vecDest, vertical)
 
                 r = Ray(origin, vecDest)
-                col = r.color()
+                col = r.color_environment()
                 r = int(col.r() * 255.99)
                 g = int(col.g() * 255.99)
                 b = int(col.b() * 255.99)
