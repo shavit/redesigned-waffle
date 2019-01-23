@@ -40,9 +40,9 @@ class Vector(object):
             + self.__z * self.__z
 
     def dot(self, vec1, vec2):
-        return vec1.x() * vec2.x() \
-            + vec1.y() * vec2.y() \
-            + vec1.z() * vec2.z()
+        return vec1.x() * float(vec2.x()) \
+            + vec1.y() * float(vec2.y()) \
+            + vec1.z() * float(vec2.z())
 
     def cross(self, vec1, vec2):
         x = vec1.y() * vec2.z() - vec1.z() * vec2.y()
@@ -52,25 +52,43 @@ class Vector(object):
         return Vector(x, y, z)
 
     def unitVector(self):
-        return self.div(self.length())
+        return self.divf(self.length())
 
     def plus(self, vec1, vec2):
-        x = vec1.x() + vec2.x()
-        y = vec1.y() + vec2.y()
-        z = vec1.z() + vec2.z()
+        x = vec1.x() + float(vec2.x())
+        y = vec1.y() + float(vec2.y())
+        z = vec1.z() + float(vec2.z())
+
+        return Vector(x, y, z)
+
+    def minus(self, vec1, vec2):
+        x = vec1.x() - float(vec2.x())
+        y = vec1.y() - float(vec2.y())
+        z = vec1.z() - float(vec2.z())
 
         return Vector(x, y, z)
 
     def multif(self, nFloat):
-        x = self.__x * nFloat
-        y = self.__y * nFloat
-        z = self.__z * nFloat
+        x = self.__x * float(nFloat)
+        y = self.__y * float(nFloat)
+        z = self.__z * float(nFloat)
 
         return Vector(x, y, z)
 
-    def div(self, n):
+    def divf(self, nFloat):
+        n = nFloat if float(nFloat) > 0 else 1
         x = self.__x / n
         y = self.__y / n
         z = self.__z / n
+
+        return Vector(x, y, z)
+
+    def div(self, vec):
+        vecx = vec.x() if vec.x() > 0 else 1
+        vecy = vec.y() if vec.y() > 0 else 1
+        vecz = vec.z() if vec.z() > 0 else 1
+        x = self.__x / float(vecx)
+        y = self.__y / float(vecy)
+        z = self.__z / float(vecz)
 
         return Vector(x, y, z)
